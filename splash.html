@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splash | Good Health and Well-Being</title>
+<meta http-equiv="refresh" content="4; url=home.html">
+<link rel="stylesheet" href="style.css">
+<style>
+.splash-main {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+.splash-box {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    padding: 40px 25px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+.splash-box h1 { font-size: 2.4rem; margin-bottom: 15px; }
+.splash-box p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 18px;
+}
+.splash-img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 16px;
+    margin: 20px auto;
+    display: block;
+}
+.loader {
+    width: 60px;
+    height: 60px;
+    margin: 18px auto;
+    border: 6px solid #c8e6c9;
+    border-top: 6px solid #2e7d32;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+.countdown { font-size: 2rem; font-weight: bold; margin: 15px 0; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Website logo" class="logo">
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="splash.html" class="active">Splash</a>
+        <a href="ais.html">AIS</a>
+        <a href="content_ST2.html">Content</a>
+    </nav>
+</header>
+<main class="splash-main">
+    <section class="splash-box">
+        <h1>Good Health and Well-Being</h1>
+        <p>Our website explores Sustainable Development Goal 3 by raising awareness about physical health, mental wellbeing, healthy routines, and access to support.</p>
+        <p><strong>Team members:</strong> Shayma, Irmak, Zuhur, Hannah</p>
+        <img src="images/splash-health.jpg" alt="Healthy lifestyle illustration representing wellbeing" class="splash-img">
+        <div class="loader" aria-hidden="true"></div>
+        <p class="countdown" id="countdown">4</p>
+        <a href="home.html" class="btn">Skip Intro</a>
+    </section>
+</main>
+<footer>
+    <p><a href="pageEditor_ST2.html">Page Editor</a></p>
+    <p><a href="validation_ST2.html">Validation</a></p>
+    <p>Irmak Esmer - Student 2 - W2044945</p>
+    <p><a href="validation_ST2.html#accessibility">Accessibility</a></p>
+</footer>
+<script>
+let count = 4;
+const countdown = document.getElementById('countdown');
+const timer = setInterval(() => {
+  count--;
+  if (count >= 0) countdown.textContent = count;
+  if (count < 0) clearInterval(timer);
+}, 1000);
+</script>
+</body>
+</html>

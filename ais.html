@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIS | Good Health and Well-Being</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.ais-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+.ais-hero {
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 16px;
+    padding: 18px;
+    background: rgba(0, 0, 0, 0.02);
+    margin-bottom: 16px;
+}
+.ais-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+.ais-card {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    user-select: none;
+}
+.ais-card.is-selected {
+    border-color: rgba(40, 160, 120, 0.55);
+    box-shadow: 0 14px 30px rgba(40, 160, 120, 0.18);
+    transform: translateY(-2px);
+}
+.ais-thumb {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+.ais-body { padding: 12px 12px 14px; }
+.ais-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.ais-points {
+    font-weight: 800;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(40, 160, 120, 0.10);
+    border: 1px solid rgba(40, 160, 120, 0.20);
+}
+.ais-panel {
+    margin-top: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 16px;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.02);
+}
+@media (max-width: 980px) {
+    .ais-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+    .ais-grid { grid-template-columns: 1fr; }
+    .ais-thumb { height: 170px; }
+}
+</style>
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Website logo" class="logo">
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="splash.html">Splash</a>
+        <a href="ais.html" class="active">AIS</a>
+        <a href="content_ST2.html">Content</a>
+    </nav>
+</header>
+<main>
+<div class="ais-wrap">
+<section class="ais-hero">
+<h1>SDG 3 Action Impact Simulator</h1>
+<p>This interactive page allows users to choose realistic actions that support health and wellbeing. Each selected action adds points to an impact score.</p>
+<p>Tip: Click a card or use Enter/Space to select it.</p>
+</section>
+
+<section class="ais-grid" aria-label="Action cards">
+<article class="ais-card" data-points="4" tabindex="0" role="button" aria-pressed="false">
+<img class="ais-thumb" src="images/ais-sleep.jpg" alt="A calm bedroom representing healthy sleep">
+<div class="ais-body"><h2>Protect Your Sleep Window</h2><p>Set a consistent bedtime for 3 nights and reduce screens before sleep.</p><div class="ais-meta"><span>Recovery &amp; mood</span><span class="ais-points">4 pts</span></div></div>
+</article>
+<article class="ais-card" data-points="3" tabindex="0" role="button" aria-pressed="false">
+<img class="ais-thumb" src="images/ais-water.jpg" alt="A reusable water bottle on a desk">
+<div class="ais-body"><h2>Hydration Check</h2><p>Carry a water bottle and add two more water breaks during the day.</p><div class="ais-meta"><span>Energy &amp; focus</span><span class="ais-points">3 pts</span></div></div>
+</article>
+<article class="ais-card" data-points="5" tabindex="0" role="button" aria-pressed="false">
+<img class="ais-thumb" src="images/ais-walk.jpg" alt="People walking outdoors">
+<div class="ais-body"><h2>Move 20 Minutes</h2><p>Go for a walk or do a beginner workout three times this week.</p><div class="ais-meta"><span>Heart &amp; stress</span><span class="ais-points">5 pts</span></div></div>
+</article>
+<article class="ais-card" data-points="4" tabindex="0" role="button" aria-pressed="false">
+<img class="ais-thumb" src="images/ais-meal.jpg" alt="A healthy balanced meal with vegetables">
+<div class="ais-body"><h2>Build a Balanced Plate</h2><p>Add more fruit or vegetables to at least one meal every day.</p><div class="ais-meta"><span>Nutrition boost</span><span class="ais-points">4 pts</span></div></div>
+</article>
+<article class="ais-card" data-points="2" tabindex="0" role="button" aria-pressed="false">
+<img class="ais-thumb" src="images/ais-breathing.jpg" alt="A person practicing calm breathing">
+<div class="ais-body"><h2>2-Minute Reset</h2><p>Use a short breathing exercise when stress levels rise during the day.</p><div class="ais-meta"><span>Calm &amp; clarity</span><span class="ais-points">2 pts</span></div></div>
+</article>
+<article class="ais-card" data-points="3" tabindex="0" role="button" aria-pressed="false">
+<img class="ais-thumb" src="images/ais-support.jpg" alt="Friends supporting each other">
+<div class="ais-body"><h2>Reach Out &amp; Check In</h2><p>Talk to a friend, family member, or support service to strengthen wellbeing.</p><div class="ais-meta"><span>Social support</span><span class="ais-points">3 pts</span></div></div>
+</article>
+</section>
+
+<section class="ais-panel" aria-live="polite">
+<div class="ais-score" id="aisScore">Impact Score: 0</div>
+<p class="ais-feedback" id="aisFeedback">Select actions to see your impact reflection.</p>
+<div class="ais-actions">
+<button class="ais-btn" id="aisClearBtn" type="button">Clear Selection</button>
+<button class="ais-btn" id="aisSuggestBtn" type="button">Suggest Next Step</button>
+</div>
+</section>
+</div>
+</main>
+<footer>
+    <p><a href="pageEditor_ST2.html">Page Editor</a></p>
+    <p><a href="validation_ST2.html">Validation</a></p>
+    <p>Irmak Esmer - Student 2 - W2044945</p>
+    <p><a href="validation_ST2.html#accessibility">Accessibility</a></p>
+</footer>
+<script>
+const cards = document.querySelectorAll(".ais-card");
+const scoreEl = document.getElementById("aisScore");
+const feedbackEl = document.getElementById("aisFeedback");
+const clearBtn = document.getElementById("aisClearBtn");
+const suggestBtn = document.getElementById("aisSuggestBtn");
+const selected = new Set();
+
+function computeScore() {
+    let total = 0;
+    selected.forEach(card => { total += Number(card.dataset.points); });
+    return total;
+}
+
+function updateUI() {
+    const total = computeScore();
+    scoreEl.textContent = `Impact Score: ${total}`;
+    if (selected.size === 0) {
+        feedbackEl.textContent = "Select actions to see your impact reflection.";
+    } else if (total <= 5) {
+        feedbackEl.textContent = "Low impact: Nice start. Small healthy actions can build strong habits.";
+    } else if (total <= 12) {
+        feedbackEl.textContent = "Medium impact: Good progress. Your selected actions support SDG 3 in practical ways.";
+    } else {
+        feedbackEl.textContent = "High impact: Excellent impact. Focus on keeping these healthy habits consistent.";
+    }
+}
+
+function toggleCard(card) {
+    const isSelected = card.classList.toggle("is-selected");
+    card.setAttribute("aria-pressed", isSelected ? "true" : "false");
+    if (isSelected) selected.add(card); else selected.delete(card);
+    updateUI();
+}
+
+cards.forEach(card => {
+    card.addEventListener("click", () => toggleCard(card));
+    card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleCard(card);
+        }
+    });
+});
+
+clearBtn.addEventListener("click", () => {
+    selected.forEach(card => {
+        card.classList.remove("is-selected");
+        card.setAttribute("aria-pressed", "false");
+    });
+    selected.clear();
+    updateUI();
+});
+
+suggestBtn.addEventListener("click", () => {
+    const unselected = Array.from(cards).filter(card => !selected.has(card));
+    if (unselected.length === 0) {
+        feedbackEl.textContent = "You selected every action. Try keeping the most realistic habits long term.";
+        return;
+    }
+    const pick = unselected[Math.floor(Math.random() * unselected.length)];
+    const title = pick.querySelector("h2").textContent;
+    feedbackEl.textContent = `Suggestion: Add "${title}" to improve your weekly wellbeing plan.`;
+});
+
+updateUI();
+</script>
+</body>
+</html>
